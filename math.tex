@@ -53,7 +53,7 @@
 \fancyhf{} 
 % remove the horizontal line below the header. Remove the line below if you want header
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{Title}
+\fancyfoot[L]{Mathematics\\Frequently Asked Questions}
 \fancyfoot[C]{\thepage}
 %\fancyfoot[R]{}
 
@@ -62,19 +62,19 @@
 \begin{titlepage}
 	\vspace{1 in}
 	\centering
-	{\LARGE {Title}\par}
+	{\LARGE {Mathematics Frequently Asked Questions}\par}
 	\vspace{1 cm}
 	Author\par 
-	\texttt{author@email.org}\par
+	\texttt{mike@conlen.org}\par
 	\vspace{1 cm}
 	\today
 \end{titlepage}
 
 \thispagestyle{empty}
-\textbf{Author}: Author \\
+\textbf{Author}: Michael Conlen \\
 % Contributors go in alphabetical order by last name
 
-\textbf{Contributors}: Contributors \\
+\textbf{Contributors}:  \\
 \\
 
 % this alternates pipe and the letter L in lower case. In many fonts these look the same 
@@ -90,30 +90,44 @@
 \end{table}
 
 \tableofcontents
-\lstlistoflistings
+%\lstlistoflistings
 
 \mainmatter
 \begin{spacing}{1.618}
 \chapter{Background}
+This document is designed to serve as a repository of frequently asked questions about Mathematics. The word "frequently" is relative. 
+
+\chapter{Numbers}
+\section{Why is $0.\bar{9}=1$}
+There's a fairly simple common sense approach to this question, which is to consider the fraction $\frac{1}{3}=0.\bar{3}$. We know that $3\cdot \frac{1}{3}=1$ and it's easy to see that $3\cdot 0.\bar{3}=0.\bar{9}$ and so $0.\bar{9}=1$. This isn't a formal proof but it's convincing. 
+
+This highlights a critical detail that's useful here; there is more than one way to represent a single number. Most readers will accept that $\frac{1}{3}=0.\bar{3}$. Let's look at an easier example; $\frac{1}{2}=\frac{2}{4}$. Both fractions represent the same value and thus the same number. For fractions, also known as rational numbers\index{numbers!rational} we have an easy way to determine if two fractions are the same. We say that two fractions, $\frac{a}{b}$ and $\frac{c}{d}$ are equal if $a\cdot d=b\cdot c$. 
+
+But what does it mean for two real numbers\index{numbers!real} to be equal? For example; is $1.\bar{9}$ equal to $2$? For two real numbers we say that they are equal if their difference is equal to $0$. So now when we think about $0.\bar{9}$ and $1$ we consider what their difference is. We could write $1-0.\bar{9}$ and attempt to compute the answer but this is hard since one of these has an infinite number of digits. To reason about this formally we must understand what we mean by a real number and what arithmetic on real numbers is. If you're interested in thinking about what a real number really is see Appendix \ref{appendix:numbers_and_arithmetic}. 
+
+Without being too formal we can think about the expression $1-0.\bar{9}$. Obviously it's less than $0.1$ since $0.\bar{9}+0.1=1.0\bar{9}$ and we can similarly that it's less than $0.01$ and $0.001$. In fact, think about any number, no matter how small, we can convince ourselves that the expression $1-0.\bar{9}$ is less than that value. One property of real numbers is that if a number which is greater than or equal to 0 is less than every positive number then that number must be $0$. Another way to say this is that there are no infinitely small real numbers. There are other number systems which have these numbers such as the surreal numbers\index{numbers!surreal} and hyperreal numbers\index{numbers!hyperreal} but those behave differently than real numbers in lots of important ways. 
 
 \appendix
-\chapter{Appendix One}
+\chapter{Numbers and Arithmetic}\label{appendix:numbers_and_arithmetic}
+
+What does it mean that $3.1415...$ is a number? How about $\frac{1}{2}$ or $0$? Most of us have a really good intuition of what natural numbers like $0,~1,~2,~\dots$ are and the same for integers and rational numbers. Our intuition can break down when we think about real numbers, especially the irrational numbers like $\pi$ and $\sqrt{2}$. 
 
 \end{spacing}
 \backmatter
 
-\addcontentsline{toc}{chapter}{Acronyms}
-\printglossary[type=\acronymtype]
-\clearpage
+%\addcontentsline{toc}{chapter}{Acronyms}
+%\printglossary[type=\acronymtype]
+%\clearpage
 
-\addcontentsline{toc}{chapter}{Glossary}
-\printglossary
-\clearpage
+%\addcontentsline{toc}{chapter}{Glossary}
+%\printglossary
+%\clearpage
 
-\addcontentsline{toc}{chapter}{Bibliography}
-\printbibliography
-\clearpage
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\printbibliography
+%\clearpage
 
 \printindex
+
 
 \end{document}  
