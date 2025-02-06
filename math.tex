@@ -45,6 +45,11 @@
 }
 \lstset{style=mystyle}
 
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+\newtheorem{definition}{Definition}
+
+\newcommand{\set}[1]{\{#1\}}
 
 \begin{document}
 
@@ -112,6 +117,88 @@ Without being too formal we can think about the expression $1-0.\bar{9}$. Obviou
 
 What does it mean that $3.1415...$ is a number? How about $\frac{1}{2}$ or $0$? Most of us have a really good intuition of what natural numbers like $0,~1,~2,~\dots$ are and the same for integers and rational numbers. Our intuition can break down when we think about real numbers, especially the irrational numbers like $\pi$ and $\sqrt{2}$. 
 
+If you recall from elementary school you may have learned about whole numbers, integers\index{numbers!integers}, rational numbers\index{numbers!rational}, real numbers\index{numbers!real} and irrational numbers\index{numbers!irrational}. In this chapter we'll explore why your teachers thought they were important to learn and why we treat them differently. If we want to explore how we might compute something like $\pi+e$ or $\pi\cdot e$ when there are an infinite number of digits to compute we need to work our way up from the basics so we can be precise about what we mean. We will start with natural numbers, then build up to integers, rational numbers then real numbers. The first three sets of numbers are relatively easy compared to real numbers.
+
+\section{Natural Numbers}\index{numbers!natural}
+So what is a natural number and why is it important? The second question is quite easy. Understanding natural numbers is the easiest path to understanding more complicated things. The first question is more interesting. The first math problem most people think about is $1+1=2$. If we want to build up to the sum or product of irrational numbers like $\pi$ or $\sqrt{2}$ then we better be precise about what we mean when we say $1+1=2$. 
+
+\subsection{Relations}
+
+The first thing to figure out is what we mean by $=$. Obviously we know what it means, but we want to be precise about what we know when we say that two things are equal. From there we can contrast it by what we mean by $>$ or $\geq$. For a more detailed treatment see \cite{enderton77}. 
+
+\begin{definition}[Relation]\index{relation}
+Given a set $X$, a relation $R$ is a set of ordered pairs of elements of $X$. 
+\end{definition}
+
+We typically write something like $xRy$, which looks awful until you remember we are trying to get to $1+1=2$. The $=$ is the relation and $1+1$ and $2$ are the values on either side of the relation. 
+
+The notion of a relation doesn't tell us much; but we can think of the relation as the set of pairs of things that are related to each other. An example of a relation is an equivalence relation which might contain elements that look like $(0, 0), (1, 1), \dots$. 
+
+\begin{definition}[Equivalence Relation]\index{relation!equivalence}
+Given a set $X$, a relation $R$ is an equivalence relation if the following are true
+\begin{itemize}
+	\item For all $x$ in $X$, $xRx$.
+	\item If $xRy$ then $yRx$.
+	\item If $xRy$ and $yRz$ then $xRz$
+\end{itemize}
+\end{definition}
+
+Let's write that in something that looks more familiar
+\begin{itemize}
+	\item For all numbers $x$, $x=x$. 
+	\item If $x=y$ then $y=x$.
+	\item If $x=y$ and $y=z$ then $x=z$. 
+\end{itemize}
+
+These three properties should be familiar to you. 
+
+\subsection{Functions}
+
+Equivalence and order relations aren't the only type of relations. Functions can also be relations, assuming that they map values from one set into the same set. 
+
+First we need to define the domain and range of a relation: 
+
+\begin{definition}[domain]\index{domain}
+	The domain of a relation $R$ is the set of values $x$ such that $(x, y)$ is in the relation. 
+\end{definition}
+
+\begin{definition}[range]\index{range}
+	The range of a relation $R$ is the set of values $y$ such that $(x, y)$ is in the relation. 
+\end{definition}
+
+
+\begin{definition}
+	A function is a relation $F$ such that for each $x$ in the domain of $F$ there is one and only one $y$ such that $xFy$. 
+\end{definition}
+
+Note: we typically write $F(x)=y$ rather than $xFy$. 
+
+\subsection{Peano Axioms}
+So now that we know what we mean when we say $=$ and \emph{function} we can talk about natural numbers and arithmetic. There's a set of axioms for natural numbers attributed to Giuseppe Peano called the Peano axioms or sometimes the Dedekind-Peano axioms in reference to Richard Dedekind's contributions. For a more through treatment of Peano Axioms in the context of set theory see \cite{suppes72}. These axioms define the set of natural numbers as we know them $\set{0, 1, 2, \dots}$. 
+
+\begin{definition}[Peano Axioms]
+The following axioms define a function $S$, which together with the equivalence relation $=$ define the natural numbers. 
+\begin{enumerate}
+	\item There exists a natural number $0$. 
+	\item For all natural numbers $n$ the number $S(n)$ is also a natural number. 
+	\item For all natural numbers $m$ and $n$, if $S(m)=S(n)$ then $m=n$. 
+	\item There is no natural number $n$ such that $S(n)=0$. 
+\end{enumerate}
+\end{definition}
+
+So what does all that mean? It means there's a set of numbers that has 0 and since it has 0 it has 1 and since it has 1 it has 2 and so on. This gives us the set $\set{0, 1, 2, \dots}$ and we usually denote that set $\mathbb{N}$. The only thing left is to define how addition works. In grade school we usually write out a big addition table and memorize it, but we can give a more formal definition here using the tools we just built. 
+
+\begin{definition}{Addition of Natural Numbers}\index{addition}
+	Let $a,~b$ be natural numbers, then we define addition by
+	\begin{alignat*}{4}
+		a+b=\begin{cases}
+			a&b=0 \\
+			S(a+c)&b=S(c)
+		\end{cases}
+	\end{alignat*}
+\end{definition}
+
+
 \end{spacing}
 \backmatter
 
@@ -123,9 +210,9 @@ What does it mean that $3.1415...$ is a number? How about $\frac{1}{2}$ or $0$? 
 %\printglossary
 %\clearpage
 
-%\addcontentsline{toc}{chapter}{Bibliography}
-%\printbibliography
-%\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+\clearpage
 
 \printindex
 
